@@ -24,3 +24,23 @@ class Team:
         # elif self.players is not None:
         #     self.num_players = len(self.players)
         #     self.num_subs = self.num_players - self.teamsize
+
+    def team_cost_matrix(self):
+        """
+        Create team cost matrix of players' preferred positions
+        """
+
+        if self.players is None:
+            raise Exception('There are no players in the Team object')
+
+        cost_matrix = []
+        for player in self.players:
+            cost_list = []
+            player_costs = player.player_costs()
+            for position in self.formation:
+                for x in player_costs:
+                    if x[0] == position:
+                        cost_list.append(x[1])
+            cost_matrix.append(cost_list)
+
+        return np.array(cost_matrix)
