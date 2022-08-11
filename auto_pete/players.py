@@ -18,14 +18,14 @@ class Player:
                          ('W', self.pref_winger),
                          ('F', self.pref_forward)]
 
-    def player_weights(self):
+    def player_costs(self):
         """
-        Convert player preferences to weights
+        Convert player preferences to costs
         """
 
-        weights = []
-        for w in self.pref_all:
-            weight = 1 - (1 / w[1]) if w[1] != 0 else 1.0
-            weights.append((w[0], weight))
+        costs = []
+        for c in self.pref_all:
+            cost = 1 - (1 / c[1]) if c[1] != 0 else 1.0
+            costs.append((c[0], cost))
 
-        return weights
+        return costs
