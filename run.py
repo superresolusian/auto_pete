@@ -11,14 +11,11 @@ Jaz = Player('Jaz', 0, 2, 1, 0)
 
 Roses.players = [Sian, Vicky, Jaz]
 
+# Calculate player costs
+player_costs = []
 for player in Roses.players:
-    print(player.name)
-    print(player.pref_all)
-    print(player.player_weights())
+    player_costs.append(player.player_costs())
 
-print(Roses.players)
-print(len(Roses.players))
-print(Roses.num_subs)
-print(Roses.num_players)
-
-# cost_matrix = Roses.
+team_cost_matrix = Roses.team_cost_matrix()
+print('Team Cost Matrix:')
+print(team_cost_matrix)
