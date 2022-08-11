@@ -43,4 +43,9 @@ class Team:
                         cost_list.append(x[1])
             cost_matrix.append(cost_list)
 
-        return np.array(cost_matrix)
+        cost_matrix = np.array(cost_matrix)
+
+        if self.num_subs > 0:
+            cost_matrix = np.pad(cost_matrix, ((0, 0), (0, self.num_subs)), 'constant')
+
+        return cost_matrix
