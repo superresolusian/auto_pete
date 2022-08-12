@@ -14,3 +14,7 @@ body {
 .table {
     color: white;
 }
+
+ul {
+    list-style: none;
+}

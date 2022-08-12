@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% include "nav.html" %}
+
+{% block content %}
+<div class="container text-center pt-5">
+    <section class="pt-5">
+
+        <h1>Today's Team</h1>
+<!--        <ul>-->
+<!--            {% for player in team %}-->
+<!--            <li>{{ player.name }}</li>-->
+<!--            {% endfor %}-->
+<!--        </ul>-->
+
+        <ul>
+            <li>{{ player_name }}</li>
+            <li>Jaz</li>
+            <li>Vicky</li>
+            <li>Khea</li>
+            <li>Mychelle</li>
+            <li>Jazzie</li>
+        </ul>
+
+        <div class="pt-5">
+            <h1>Here's your winning formation!</h1>
+            <p class="lead">Go get 'em team!</p>
+            <img class="img-fluid pt-3" src="../static/auto_pete_formation_example.png"/>
+        </div>
+
+    </section>
+</div>
+{% endblock %}
