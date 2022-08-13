@@ -1,0 +1,29 @@
+<form method="POST" action="">
+        {{ form.hidden_tag() }}
+        <fieldset>
+            <div>
+                {{ form.player_name.label(class="form-control-label") }}
+                {{ form.player_name(class="form-control form-control-lg") }}
+            </div>
+            <div>
+                {{ form.pref_defence.label(class="form-control-label") }}
+                {{ form.pref_defence(class="form-control form-control-lg") }}
+            </div>
+            <div>
+                {{ form.pref_central.label(class="form-control-label") }}
+                {{ form.pref_central(class="form-control form-control-lg") }}
+            </div>
+            <div>
+                {{ form.pref_winger.label(class="form-control-label") }}
+                {{ form.pref_winger(class="form-control form-control-lg") }}
+            </div>
+            <div>
+                {{ form.pref_forward.label(class="form-control-label") }}
+                {{ form.pref_forward(class="form-control form-control-lg") }}
+            </div>
+        </fieldset>
+
+        <div class="pt-3">
+            {{ form.submit(class="btn btn-light") }}
+        </div>
+    </form>

@@ -1,46 +1,42 @@
-<form action="submit" method="POST">
-    <table class="table">
-        <thead>
+<form action="" method="POST">
+    {{ form.hidden_tag() }}
+    <fieldset>
+
+        <table class="table">
+            <thead>
             <tr>
-                <th>Player Name</th>
-                <th>Defence</th>
-                <th>Central</th>
-                <th>Winger</th>
-                <th>Forward</th>
+                <th>{{ form.player_name.label }}</th>
+                <th>{{ form.pref_defence.label }}</th>
+                <th>{{ form.pref_central.label }}</th>
+                <th>{{ form.pref_winger.label }}</th>
+                <th>{{ form.pref_forward.label }}</th>
             </tr>
-        </thead>
-        <tbody>
-            {% for n in range(1) %}
+            </thead>
+
+            <tbody>
+            {% for n in range(3) %}
             <tr>
                 <td>
-                    <input type="text" class="form-control" id="input_player_name"  placeholder="Player Name" name="player_name">
+                    {{ form.player_name(class="form-control") }}
                 </td>
                 <td>
-                    <input type="text" class="form-control" id="input_pref_defence"  placeholder="0-5" name="pref_defence">
+                    {{ form.pref_defence(class="form-control") }}
                 </td>
                 <td>
-                    <input type="text" class="form-control" id="input_pref_central"  placeholder="0-5" name="pref_central">
+                    {{ form.pref_central(class="form-control") }}
                 </td>
                 <td>
-                    <input type="text" class="form-control" id="input_pref_winger"  placeholder="0-5" name="pref_winger">
+                    {{ form.pref_winger(class="form-control") }}
                 </td>
                 <td>
-                    <input type="text" class="form-control" id="input_pref_forward"  placeholder="0-5" name="pref_forward">
+                    {{ form.pref_forward(class="form-control") }}
                 </td>
             </tr>
             {% endfor %}
-<!--          {% for player in team %}-->
-<!--            <tr>-->
-<!--              <td>{{ player.name }}</td>-->
-<!--              <td>{{ player.pref_defence }}</td>-->
-<!--              <td>{{ player.pref_central }}</td>-->
-<!--              <td>{{ player.pref_winger }}</td>-->
-<!--              <td>{{ player.pref_forward }}</td>-->
-<!--            </tr>-->
-<!--          {% endfor %}-->
-        </tbody>
-    </table>
+            </tbody>
+        </table>
 
-    <button type="submit" class="btn btn-light align-left">Submit</button>
+        {{ form.submit(class="btn btn-light") }}
+    </fieldset>
 
 </form>
