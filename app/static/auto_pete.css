@@ -18,3 +18,59 @@ body {
 ul {
     list-style: none;
 }
+
+.pitch {
+    background: center url( 'football_pitch.svg' );
+    background-size: contain;
+    background-repeat: no-repeat;
+    height: 100%;
+}
+
+.gk {
+    position: absolute;
+    top: 5%;
+    left: 48%;
+    display: inline-block;
+}
+
+.lb {
+    position: absolute;
+    top: 15%;
+    left: 40%;
+    display: inline-block;
+}
+
+.rb {
+    position: absolute;
+    top: 15%;
+    left: 58%;
+    display: inline-block;
+}
+
+.cm {
+    position: absolute;
+    top: 25%;
+    left: 48%;
+    display: inline-block;
+}
+
+.lw {
+    position: absolute;
+    top: 30%;
+    left: 35%;
+    display: inline-block;
+}
+
+.rw {
+    position: absolute;
+    top: 30%;
+    left: 63%;
+    display: inline-block;
+}
+
+.fw {
+    position: absolute;
+    top: 40%;
+    left: 48%;
+    display: inline-block;
+}

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="100%" height="100%" viewBox="0 0 700 591" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;">
+    <g id="Warstwa-1" serif:id="Warstwa 1">
+        <rect id="rect1872" x="0" y="0" width="700" height="1060" style="fill:rgb(0,160,0);"/>
+        <g id="g3772">
+            <g id="path11672" transform="matrix(1.0647,0,0,1.1466,-98.2858,-439.306)">
+                <path d="M426.679,845.37L426.679,845.376C426.679,848.247 424.135,850.609 421.044,850.609C417.952,850.609 415.408,848.247 415.408,845.376L415.408,845.37C415.408,842.499 417.952,840.137 421.044,840.137C424.135,840.137 426.679,842.499 426.679,845.37Z" style="fill:white;"/>
+            </g>
+            <g id="path11674" transform="matrix(0.887251,0,0,0.955501,-23.5716,-670.108)">
+                <path d="M426.679,845.37L426.679,845.376C426.679,848.247 424.135,850.609 421.044,850.609C417.952,850.609 415.408,848.247 415.408,845.376L415.408,845.37C415.408,842.499 417.952,840.137 421.044,840.137C424.135,840.137 426.679,842.499 426.679,845.37Z" style="fill:white;"/>
+            </g>
+            <path id="path1905" d="M442.537,530C442.537,581.08 401.08,622.537 350,622.537C298.92,622.537 257.463,581.08 257.463,530C257.463,478.92 298.92,437.463 350,437.463C401.08,437.463 442.537,478.92 442.537,530Z" style="fill:none;stroke:white;stroke-width:5px;"/>
+            <path id="path1903" d="M30.351,530L669.649,530" style="fill:none;stroke:white;stroke-width:5px;"/>
+            <path id="path2803" d="M437.586,30.01L440.055,30.01L440.055,81.92L259.945,81.92L259.945,30.01L262.476,30.01" style="fill:none;stroke:white;stroke-width:5px;"/>
+            <rect id="path1899" x="30" y="30" width="640" height="1000" style="fill:none;stroke:white;stroke-width:5px;"/>
+            <path id="path2817" d="M547.001,30.007L549.532,30.007L549.532,190.871L150.468,190.871L150.468,30.007L152.968,30.007" style="fill:none;stroke:white;stroke-width:5px;"/>
+            <path id="path2832" d="M276.287,190.921L274.246,190.933C290.99,214.775 318.669,230.37 349.996,230.37C381.325,230.37 409.033,214.778 425.777,190.933L423.739,190.933" style="fill:none;stroke:white;stroke-width:5px;"/>
+            <path id="path1893" d="M668.564,43.791C661.604,43.968 655.814,38.323 655.641,31.189C655.639,31.076 655.637,30.981 655.637,30.868" style="fill:none;stroke:white;stroke-width:5px;"/>
+            <path id="path1891" d="M44.297,30.99C44.475,37.951 38.829,43.74 31.695,43.913C31.583,43.916 31.487,43.917 31.374,43.917" style="fill:none;stroke:white;stroke-width:5px;"/>
+        </g>
+    </g>
+</svg>
