@@ -3,27 +3,21 @@
 
 {% block content %}
 <div class="container text-center pt-5">
-    <section class="pt-5">
 
         <h1>Today's Team</h1>
-<!--        <ul>-->
-<!--            {% for player in team %}-->
-<!--            <li>{{ player.name }}</li>-->
-<!--            {% endfor %}-->
-<!--        </ul>-->
+        <div class="row">
+            <div class="col">
+                <ul>
+                    <li><b>Defenders:</b> {{ defenders | join(', ') }}</li>
+                    <li><b>Central:</b> {{ central | join(', ') }}</li>
+                    <li><b>Wingers:</b> {{ wingers | join(', ') }}</li>
+                    <li><b>Forwards:</b> {{ forwards | join(', ') }}</li>
+                    <li><b>Substitutes:</b> {{ subs | join(', ') }}</li>
+                </ul>
+            </div>
+        </div>
 
-        <ul>
-            <li>{{ player_name }}</li>
-            <li>Jaz</li>
-            <li>Vicky</li>
-            <li>Khea</li>
-            <li>Mychelle</li>
-            <li>Jazzie</li>
-        </ul>
-
-        <p>{{ formation }}</p>
-
-        <div class="pt-5">
+        <div class="pt-3">
             <h1>Here's your winning formation!</h1>
             <p class="lead">Go get 'em team!</p>
             <img class="img-fluid pt-3" src="../static/auto_pete_formation_example.png"/>
