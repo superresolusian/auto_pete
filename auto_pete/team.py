@@ -49,3 +49,17 @@ class Team:
             cost_matrix = np.pad(cost_matrix, ((0, 0), (0, self.num_subs)), 'constant')
 
         return cost_matrix
+
+    def lsa_to_formation(self):
+        """
+        Performs Linear Sum Assignment to assign players to formation based on player costs
+        """
+
+        def convert_lsa_output_to_formation(cm, row_ind, col_ind, this_week, formation_with_subs):
+            formation_dict = {'D': [], 'C': [], 'W': [], 'F': [], 'S': []}
+            for i in range(len(col_ind)):
+                position = formation_with_subs[col_ind[i]]
+                player = this_week[i]
+                formation_dict[position].append(player)
+            formation_dict['cost'] = cm[row_ind, col_ind].sum()
+            return formation_dict
