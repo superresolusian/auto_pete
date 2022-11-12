@@ -2,6 +2,7 @@
 team
 """
 import numpy as np
+from scipy.optimize import linear_sum_assignment
 
 
 class Team:
@@ -53,16 +54,24 @@ class Team:
 
         return cost_matrix
 
-    def lsa_to_formation(self):
+    def cost_matrix_to_formation(self, cost_matrix, players, formation_with_subs):
         """
-        Performs Linear Sum Assignment to assign players to formation based on player costs
+        Converts Cost Matrix to Formation dict
+        cost_matrix – player position preferences
+        players – list of Player objects
+        formation_with_subs – list of strings indicating positions, plus subs
         """
 
-        def convert_lsa_output_to_formation(cm, row_ind, col_ind, this_week, formation_with_subs):
-            formation_dict = {'D': [], 'C': [], 'W': [], 'F': [], 'S': []}
-            for i in range(len(col_ind)):
-                position = formation_with_subs[col_ind[i]]
-                player = this_week[i]
-                formation_dict[position].append(player)
-            formation_dict['cost'] = cm[row_ind, col_ind].sum()
-            return formation_dict
+        # Calculate LSA
+        row_ind, col_ind = linear_sum_assignment(cost_matrix)
+
+        # TODO: make dynamic formation dict
+        formation_dict = {'D': [], 'C': [], 'W': [], 'F': [], 'S': []}
+
+        for i in range(len(col_ind)):
+            position = formation_with_subs[col_ind[i]]
+            player = players[i]
+            formation_dict[position].append(player)
+        formation_dict['cost'] = cost_matrix[row_ind, col_ind].sum()
+
+        return formation_dict
