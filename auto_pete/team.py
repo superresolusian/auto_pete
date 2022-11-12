@@ -25,6 +25,9 @@ class Team:
         #     self.num_players = len(self.players)
         #     self.num_subs = self.num_players - self.teamsize
 
+    def get_player_names(self):
+        return [n.name for n in self.players]
+
     def team_cost_matrix(self):
         """
         Create team cost matrix of players' preferred positions

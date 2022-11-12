@@ -30,6 +30,8 @@ for player in Roses.players:
 team_cost_matrix = Roses.team_cost_matrix()
 print('Team Cost Matrix:')
 print(team_cost_matrix)
+print('Cost Matrix shape:', team_cost_matrix.shape)
+print('Players:', Roses.get_player_names())
 
 row_ind, col_ind = linear_sum_assignment(team_cost_matrix)
-print(row_ind, col_ind)
+print("Linear Sum Assignment", row_ind, col_ind)
