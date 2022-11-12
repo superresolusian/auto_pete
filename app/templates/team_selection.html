@@ -5,6 +5,13 @@
 <div class="container text-center pt-5">
 
         <h1>Today's Team</h1>
+
+        <p> <b>Players: </b>
+            {% for player in player_name_submitted %}
+                {{ player_name_submitted[player] }}
+            {% endfor %}
+        </p>
+
         <div class="row">
             <div class="col">
                 <ul>
