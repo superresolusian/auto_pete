@@ -12,7 +12,7 @@ In your preferred code folder, clone the auto_pete Git repo:
 
 ```
 cd ~/code
-git clone git@github.com:superresolusian/auto_pete.git
+git clone https://github.com/superresolusian/auto_pete.git
 ```
 
 In your preferred venv folder, create and source a new Python virtual environment:
