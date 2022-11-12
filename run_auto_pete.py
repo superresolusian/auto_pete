@@ -1,6 +1,5 @@
 from auto_pete.players import Player
 from auto_pete.team import Team
-from scipy.optimize import minimize, linear_sum_assignment
 
 print("Running auto_pete ...")
 
@@ -30,6 +29,18 @@ for player in Roses.players:
 team_cost_matrix = Roses.team_cost_matrix()
 print('Team Cost Matrix:')
 print(team_cost_matrix)
+print('Cost Matrix shape:', team_cost_matrix.shape)
+print('Players:', Roses.get_player_names())
 
-row_ind, col_ind = linear_sum_assignment(team_cost_matrix)
-print(row_ind, col_ind)
+print('Formation:', Roses.formation)
+print('Num Subs:', Roses.num_subs)
+
+formation_with_subs = Roses.formation.copy()
+for i in range(Roses.num_subs):
+    formation_with_subs.append('S')
+
+print('Formation + Subs:', formation_with_subs)
+
+output_formation = Roses.cost_matrix_to_formation(team_cost_matrix, Roses.get_player_names(), formation_with_subs)
+print("Formation", output_formation)
+
