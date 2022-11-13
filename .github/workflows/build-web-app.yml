@@ -48,5 +48,7 @@ jobs:
       run: |
         python setup.py install
 
-    - name: Run Auto_Pete
-      run: python run.py
+#    TODO
+#    See: https://flask.palletsprojects.com/en/2.2.x/testing/#sending-requests-with-the-test-client
+#    - name: Run Auto_Pete tests
+#      run: python run.py
