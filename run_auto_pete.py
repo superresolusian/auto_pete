@@ -16,11 +16,6 @@ Roses.add_player('Christine', [0, 0, 1, 2])
 Roses.add_player('Keah', [0, 1.5, 1, 2])
 Roses.add_player('Olivia', [0, 2, 2, 0])
 
-# # Calculate Player Costs
-# player_costs = []
-# for player in Roses.players:
-#     player_costs.append(player.player_costs())
-
 team_cost_matrix = Roses.team_cost_matrix()
 print(f'Team Name: {Roses.teamname}')
 print(f'Team Cost Matrix:\n {team_cost_matrix}')
@@ -29,7 +24,6 @@ print(f'Players: {Roses.get_player_names()}')
 print(f'Formation + Subs: {Roses.formation}')
 print(f'Num Players: {Roses.num_players}')
 print(f'Num Subs: {Roses.num_subs}')
-
 
 output_formation = Roses.cost_matrix_to_formation(team_cost_matrix, Roses.get_player_names(), formation_with_subs)
 print("Formation", output_formation)

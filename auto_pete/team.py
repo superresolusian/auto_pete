@@ -41,12 +41,7 @@ class Team:
 
         # TODO: pos_prefs should be any length
         self.players.append(
-            Player(player_name,
-                   pos_pref[0],
-                   pos_pref[1],
-                   pos_pref[2],
-                   pos_pref[3],
-                   )
+            Player(player_name, pos_pref)
             )
 
         # update number of players
