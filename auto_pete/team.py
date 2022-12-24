@@ -3,6 +3,7 @@ team
 """
 import numpy as np
 from scipy.optimize import linear_sum_assignment
+from auto_pete.players import Player
 
 
 class Team:
@@ -13,21 +14,45 @@ class Team:
         self.players = None
         self.formation = ['D', 'D', 'C', 'W', 'W', 'F']
         self.teamsize = len(self.formation)+1
+        self.num_players = 0
         self.num_subs = 0
-
-        # TODO: auto-update object based on number of Player objects in Team
-        # property decorator:
-        # https://stackoverflow.com/questions/14916284/in-class-object-how-to-auto-update-attributes
-
-        # if self.players is None:
-        #     self.num_players = 0
-        #     self.num_subs = 0
-        # elif self.players is not None:
-        #     self.num_players = len(self.players)
-        #     self.num_subs = self.num_players - self.teamsize
 
     def get_player_names(self):
         return [n.name for n in self.players]
+
+    def add_player(self, player_name: str, pos_pref: list):
+        """
+        add_player - add Player object to Team object
+
+        :param player_name: Player's name
+        :param pos_pref: [List of int or str] Player's position preferences
+        :return:
+        """
+
+        if self.players is None:
+            self.players = []
+
+        if type(player_name) is not str:
+            Exception('player_name is not type: str')
+
+        if type(pos_pref[0]) is not int:
+            pos_pref = [int(p) for p in pos_pref]
+
+        # TODO: pos_prefs should be any length
+        self.players.append(
+            Player(player_name,
+                   pos_pref[0],
+                   pos_pref[1],
+                   pos_pref[2],
+                   pos_pref[3],
+                   )
+            )
+
+        # update Team object parameters
+        self.num_players = len(self.players)
+
+        if self.num_players > self.teamsize:
+            self.num_subs = self.num_players - self.teamsize
 
     def team_cost_matrix(self):
         """
