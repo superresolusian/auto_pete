@@ -12,10 +12,11 @@ class Team:
 
         self.teamname = teamname
         self.players = None
-        self.formation = ['D', 'D', 'C', 'W', 'W', 'F']
-        self.teamsize = len(self.formation)+1
         self.num_players = 0
         self.num_subs = 0
+        self.formation = ['D', 'D', 'C', 'W', 'W', 'F']
+        self.team_size = len(self.formation) + 1
+        self.cost_matrix = []
 
     def get_player_names(self):
         return [n.name for n in self.players]
@@ -52,8 +53,8 @@ class Team:
         self.num_players = len(self.players)
 
         # update substitutes
-        if self.num_players > self.teamsize:
-            self.num_subs = self.num_players - self.teamsize
+        if self.num_players > self.team_size:
+            self.num_subs = self.num_players - self.team_size
             self.formation.append('S')
 
     def team_cost_matrix(self):
@@ -64,7 +65,6 @@ class Team:
         if self.players is None:
             raise Exception('There are no players in the Team object')
 
-        cost_matrix = []
         for player in self.players:
             cost_list = []
             player_costs = player.player_costs()
@@ -72,14 +72,14 @@ class Team:
                 for x in player_costs:
                     if x[0] == position:
                         cost_list.append(x[1])
-            cost_matrix.append(cost_list)
+            self.cost_matrix.append(cost_list)
 
-        cost_matrix = np.array(cost_matrix)
+        self.cost_matrix = np.array(self.cost_matrix)
 
         if self.num_subs > 0:
-            cost_matrix = np.pad(cost_matrix, ((0, 0), (0, self.num_subs)), 'constant')
+            self.cost_matrix = np.pad(self.cost_matrix, ((0, 0), (0, self.num_subs)), 'constant')
 
-        return cost_matrix
+        return self.cost_matrix
 
     def cost_matrix_to_formation(self, cost_matrix, players, formation_with_subs):
         """

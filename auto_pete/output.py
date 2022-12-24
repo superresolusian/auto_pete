@@ -24,7 +24,7 @@ def output_formation(team_preferences):
         ))
 
     Roses.players = player_list
-    Roses.num_subs = len(Roses.players) - Roses.teamsize
+    Roses.num_subs = len(Roses.players) - Roses.team_size
 
     # Calculate Player Costs
     player_costs = []
