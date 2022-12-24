@@ -48,11 +48,13 @@ class Team:
                    )
             )
 
-        # update Team object parameters
+        # update number of players
         self.num_players = len(self.players)
 
+        # update substitutes
         if self.num_players > self.teamsize:
             self.num_subs = self.num_players - self.teamsize
+            self.formation.append('S')
 
     def team_cost_matrix(self):
         """
