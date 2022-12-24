@@ -61,8 +61,9 @@ class Team:
             raise Exception('There are no players in the Team object')
 
         for player in self.players:
+
             cost_list = []
-            player_costs = player.player_costs()
+            player_costs = player.player_costs
             for position in self.formation:
                 for x in player_costs:
                     if x[0] == position:
