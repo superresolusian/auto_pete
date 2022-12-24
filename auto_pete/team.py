@@ -17,8 +17,8 @@ class Team:
         self.num_periods = 1
         self.formation = ['D', 'D', 'C', 'W', 'W', 'F']
         self.team_size = len(self.formation) + 1
-        self.sub_weight = 1.0
-        self.cost_matrix = []
+        self.sub_cost = 1.0
+        self.cost_matrix = None
 
     def get_player_names(self):
         return [n.name for n in self.players]
@@ -65,6 +65,9 @@ class Team:
         if self.players is None:
             raise Exception('There are no players in the Team object')
 
+        if self.cost_matrix is None:
+            self.cost_matrix = []
+
         for player in self.players:
 
             cost_list = []
@@ -110,9 +113,9 @@ class Team:
         :return:
         """
         # TODO: automate based on self.num_players
-        if self.num_players is 8:
+        if self.num_players == 8:
             self.num_periods = 4
-        elif self.num_players is 9:
+        elif self.num_players == 9:
             self.num_periods = 3
         else:
             self.num_periods = 7
