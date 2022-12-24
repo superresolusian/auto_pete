@@ -85,6 +85,23 @@ class Team:
 
         return self.cost_matrix
 
+    # def set_team_cost_matrix(self):
+    #
+    #     if self.cost_matrix is None:
+    #         raise Exception('There is no cost_matrix for this Team object.')
+    #
+    #     sub_cost_array = np.zeros(self.num_players)
+    #
+    #     for period in range(self.num_periods):
+    #         row_ind, col_ind = linear_sum_assignment(self.cost_matrix)
+    #
+    #         for i in range(len(row_ind)):
+    #             if self.formation[col_ind[i]] == 'S':
+    #                 sub_cost_array[i] += self.sub_cost
+    #
+    #         self.cost_matrix = alter_subs_weights(self.cost_matrix, sub_cost_array)
+
+
     def cost_matrix_to_formation(self, cost_matrix, players, formation_with_subs):
         """
         Converts Cost Matrix to Formation dict
@@ -119,3 +136,14 @@ class Team:
             self.num_periods = 3
         else:
             self.num_periods = 7
+
+
+# def alter_subs_weights(cost_matrix, subs_weights):
+#     n_subs = len(cost_matrix) - 6
+#     cost_matrix_with_subs = []
+#     for i in range(len(cost_matrix)):
+#         cost_list = list(cost_matrix[i])
+#         for j in range(n_subs):
+#             cost_list[-(j+1)] = subs_weights[i]
+#         cost_matrix_with_subs.append(cost_list)
+#     return np.array(cost_matrix_with_subs)
