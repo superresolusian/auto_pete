@@ -14,8 +14,10 @@ class Team:
         self.players = None
         self.num_players = 0
         self.num_subs = 0
+        self.num_periods = 1
         self.formation = ['D', 'D', 'C', 'W', 'W', 'F']
         self.team_size = len(self.formation) + 1
+        self.sub_weight = 1.0
         self.cost_matrix = []
 
     def get_player_names(self):
@@ -51,6 +53,9 @@ class Team:
         if self.num_players > self.team_size:
             self.num_subs = self.num_players - self.team_size
             self.formation.append('S')
+
+        # update match periods
+        self.set_num_periods()
 
     def team_cost_matrix(self):
         """
@@ -98,3 +103,16 @@ class Team:
         formation_dict['cost'] = cost_matrix[row_ind, col_ind].sum()
 
         return formation_dict
+
+    def set_num_periods(self):
+        """
+        Divide match time into number of periods
+        :return:
+        """
+        # TODO: automate based on self.num_players
+        if self.num_players is 8:
+            self.num_periods = 4
+        elif self.num_players is 9:
+            self.num_periods = 3
+        else:
+            self.num_periods = 7

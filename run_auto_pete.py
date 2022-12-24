@@ -24,6 +24,7 @@ print(f'Players: {Roses.get_player_names()}')
 print(f'Formation + Subs: {Roses.formation}')
 print(f'Num Players: {Roses.num_players}')
 print(f'Num Subs: {Roses.num_subs}')
+print(f'Num Match Periods: {Roses.num_periods}')
 
 output_formation = Roses.cost_matrix_to_formation(team_cost_matrix, Roses.get_player_names(), formation_with_subs)
 print("Formation", output_formation)
