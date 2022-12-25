@@ -11,15 +11,16 @@
     </section>
 
     <section class="pt-5">
-        <h2>What format of the beautiful game are you playing?</h2>
-        <div class="col pt-2">
-            <button class="btn btn-danger">5-a-side</button>
-            <button class="btn btn-danger">7-a-side</button>
-            <button class="btn btn-danger">11-a-side</button>
-        </div>
+        {% include "match_format_form.html" %}
     </section>
 
-    {% include "players_form.html" %}
+    <section class="pt-5">
+        {% include "subs_form.html" %}
+    </section>
+
+    <section class="pt-5">
+        {% include "players_form.html" %}
+    </section>
 
 </div>
 {% endblock %}

@@ -1,55 +1,44 @@
 <form method="POST" action="/team_selection" role="form">
     {{ form.hidden_tag() }}
 
-    <section class="pt-5">
-        <h2>How many substitutes?</h2>
-        <div class="row justify-content-md-center">
-            <div class="col col-1">
-                {{ form.NumSubs(class="form-control") }}
-            </div>
-        </div>
-    </section>
+    <h2>Who is playing today?</h2>
+    <p class="lead">And, what are their preferred positions? [0 = Hate, 5 = Love]</p>
 
-    <section class="pt-5">
-        <h2>Who is playing today?</h2>
-        <p class="lead">And, what are their preferred positions? [0 = Hate, 5 = Love]</p>
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Player Name</th>
+            <th>Defence</th>
+            <th>Central</th>
+            <th>Winger</th>
+            <th>Forward</th>
+        </tr>
+        </thead>
 
-        <table class="table">
-            <thead>
+        <tbody>
+        {% for player in form.PlayerList %}
             <tr>
-                <th>Player Name</th>
-                <th>Defence</th>
-                <th>Central</th>
-                <th>Winger</th>
-                <th>Forward</th>
+                <td>
+                    {{ player.player_name(class="form-control") }}
+                </td>
+                <td>
+                    {{ player.pref_defence(class="form-control") }}
+                </td>
+                <td>
+                    {{ player.pref_central(class="form-control") }}
+                </td>
+                <td>
+                    {{ player.pref_winger(class="form-control") }}
+                </td>
+                <td>
+                    {{ player.pref_forward(class="form-control") }}
+                </td>
             </tr>
-            </thead>
+        {% endfor %}
+        </tbody>
+    </table>
 
-            <tbody>
-            {% for player in form.PlayerList %}
-                <tr>
-                    <td>
-                        {{ player.player_name(class="form-control") }}
-                    </td>
-                    <td>
-                        {{ player.pref_defence(class="form-control") }}
-                    </td>
-                    <td>
-                        {{ player.pref_central(class="form-control") }}
-                    </td>
-                    <td>
-                        {{ player.pref_winger(class="form-control") }}
-                    </td>
-                    <td>
-                        {{ player.pref_forward(class="form-control") }}
-                    </td>
-                </tr>
-            {% endfor %}
-            </tbody>
-        </table>
-
-        <div class="pt-3">
-            {{ form.submit(class="btn btn-light") }}
-        </div>
-    </section>
+    <div class="pt-3">
+        {{ form.submit(class="btn btn-light") }}
+    </div>
 </form>

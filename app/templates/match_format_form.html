@@ -1,0 +1,10 @@
+<form method="POST" action="{{ url_for('set_match_format') }}">
+    {{ form.hidden_tag() }}
+
+    <h2>What format of the beautiful game are you playing?</h2>
+    <div class="col pt-2">
+        <button class="btn btn-danger" type="submit" name="num_players" value="5">5-a-side</button>
+        <button class="btn btn-danger" type="submit" name="num_players" value="7">7-a-side</button>
+        <button class="btn btn-danger" type="submit" name="num_players" value="11">11-a-side</button>
+    </div>
+</form>

@@ -1,0 +1,16 @@
+<form method="POST" action="{{ url_for('set_num_subs') }}">
+    {{ form.hidden_tag() }}
+
+    <h2>How many substitutes?</h2>
+    <div class="row justify-content-md-center">
+        <div class="col pt-2">
+            <button class="btn btn-danger" type="submit" name="num_subs" value="0">0</button>
+            <button class="btn btn-danger" type="submit" name="num_subs" value="1">1</button>
+            <button class="btn btn-danger" type="submit" name="num_subs" value="2">2</button>
+            <button class="btn btn-danger" type="submit" name="num_subs" value="3">3</button>
+            <button class="btn btn-danger" type="submit" name="num_subs" value="4">4</button>
+            <button class="btn btn-danger" type="submit" name="num_subs" value="5">5</button>
+        </div>
+    </div>
+
+</form>
