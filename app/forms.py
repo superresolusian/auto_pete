@@ -13,4 +13,5 @@ class PlayerPrefForm(FlaskForm):
 
 class TeamSelectionForm(FlaskForm):
     PlayerList = FieldList(FormField(PlayerPrefForm), min_entries=6)
+    NumSubs = IntegerField('Number of Substitutes', default=0, validators=[DataRequired()])
     submit = SubmitField('Generate Formation')

@@ -11,11 +11,15 @@
     </section>
 
     <section class="pt-5">
-        <h2>Hey! Who is playing today?</h2>
-        <p class="lead">And, what are their preferred positions? [0 = Hate, 5 = Love]</p>
-
-        {% include "players_form.html" %}
+        <h2>What format of the beautiful game are you playing?</h2>
+        <div class="col pt-2">
+            <button class="btn btn-danger">5-a-side</button>
+            <button class="btn btn-danger">7-a-side</button>
+            <button class="btn btn-danger">11-a-side</button>
+        </div>
     </section>
+
+    {% include "players_form.html" %}
 
 </div>
 {% endblock %}
