@@ -1,42 +1,46 @@
-from auto_pete.players import Player
+from app import app
+
 from auto_pete.team import Team
 
 
 def output_formation(team_preferences):
+    """
+    Convert team_preferences into a formation
+    :param team_preferences: HTML form converted to list of player positional preferences
+    :return formation: dictionary of final formation
+    """
 
-    print('Team Preferences:', team_preferences)
+    app.logger.info(f'Team Preferences:\n {team_preferences}')
 
     # Instantiate Team object
     # TODO: add Team Name box to front end
-    Roses = Team('Roses')
+    TeamObj = Team('Roses')
 
     # Add Player objects to Team object
-    # TODO: below seems clunky
-    #  - seek cleaner way of adding Player objects to Team class
-    player_list = []
-    for p in range(len(team_preferences)):
-        player_list.append(Player(
-            team_preferences[p][0],
-            int(team_preferences[p][1]),
-            int(team_preferences[p][2]),
-            int(team_preferences[p][3]),
-            int(team_preferences[p][4])
-        ))
+    for player_input in team_preferences:
+        player_name = player_input[0]
+        # TODO: update TeamObj below to take any number of player_input prefs
+        TeamObj.add_player(player_name,
+                           [player_input[1],
+                            player_input[2],
+                            player_input[3],
+                            player_input[4]]
+                           )
 
-    Roses.players = player_list
-    Roses.num_subs = len(Roses.players) - Roses.team_size
+    team_cost_matrix = TeamObj.team_cost_matrix()
 
-    # Calculate Player Costs
-    player_costs = []
-    for player in Roses.players:
-        player_costs.append(player.player_costs())
+    formation = TeamObj.cost_matrix_to_formation(team_cost_matrix,
+                                                 TeamObj.get_player_names(),
+                                                 TeamObj.formation)
 
-    team_cost_matrix = Roses.team_cost_matrix()
+    app.logger.info(f'Team Name: {TeamObj.teamname}')
+    app.logger.info(f'Team Cost Matrix:\n {team_cost_matrix}')
+    app.logger.info(f'Cost Matrix shape: {team_cost_matrix.shape}')
+    app.logger.info(f'Players: {TeamObj.get_player_names()}')
+    app.logger.info(f'Formation + Subs: {TeamObj.formation}')
+    app.logger.info(f'Num Players: {TeamObj.num_players}')
+    app.logger.info(f'Num Subs: {TeamObj.num_subs}')
+    app.logger.info(f'Num Match Periods: {TeamObj.num_periods}')
+    app.logger.info(f'Formation: {formation}')
 
-    formation_with_subs = Roses.formation.copy()
-    for i in range(Roses.num_subs):
-        formation_with_subs.append('S')
-
-    formation_output = Roses.cost_matrix_to_formation(team_cost_matrix, Roses.get_player_names(), formation_with_subs)
-
-    return formation_output
+    return formation
