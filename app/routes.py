@@ -56,15 +56,10 @@ def set_num_subs():
 @app.route("/team_selection", methods=['GET', 'POST'])
 def optimise_team():
 
-    # initialise if match format or number of subs not specified
-    if not session['num_players']:
-        session['num_players'] = 7
-    if not session['num_subs']:
-        session['num_subs'] = 3
-
-    app.logger.info('route: optimise_team')
-    app.logger.info(f'num_players: {session["num_players"]}')
-    app.logger.info(f'num_subs: {session["num_subs"]}')
+    app.logger.info(f'route: optimise_team()')
+    app.logger.info(f'session["num_players"]: {session["num_players"]}')
+    # TODO: reminder - ensure session['num_players'] consistent with num_players further in function
+    app.logger.info(f'session["num_players"]: {session["num_subs"]}')
 
     # Retrieve team preference form inputs
     team_form = request.form
@@ -77,7 +72,7 @@ def optimise_team():
     pref_forward_submitted = [team_form[player] for player in team_form if "pref_forward" in player]
 
     # Pass list of lists to AUTO_PETE
-    num_players = len(player_name_submitted)
+    num_players = len(player_name_submitted)  # TODO: update once goalkeeper added as position
     team_preferences = []
     for n in range(num_players):
         team_preferences.append([
@@ -88,10 +83,10 @@ def optimise_team():
             pref_forward_submitted[n]
         ])
 
-    # Run AUTO_PETE
+    # Run auto_pete
     formation = output_formation(team_preferences)
 
-    # Parse AUTO_PETE formation for display
+    # Parse auto_pete formation for display
     defenders = formation['D']
     central   = formation['C']
     wingers   = formation['W']
