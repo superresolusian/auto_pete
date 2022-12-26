@@ -14,13 +14,13 @@ def home():
     session['num_subs'] = 0
 
     if request.method == 'GET':
-        form = TeamSelectionForm()
+        team_form = TeamSelectionForm()
 
-        if form.is_submitted():
+        if team_form.is_submitted():
             flash(f'Team selection submitted!', 'success')
             app.logger.info("TeamSelectionForm submitted.")
 
-        return render_template("index.html", form=form)
+        return render_template("index.html", form=team_form)
 
 
 @app.route("/set_match_format", methods=['GET', 'POST'])
@@ -32,10 +32,10 @@ def set_match_format():
 
     num_subs = session['num_subs']
 
-    # TODO: remove -1 when goalkeeper added as position
-    form = dynamically_update_form(num_players - 1 + num_subs)
+    # TODO: remove -1 once goalkeeper added as position
+    team_form = dynamically_update_form(num_players - 1 + num_subs)
 
-    return render_template("index.html", form=form)
+    return render_template("index.html", form=team_form)
 
 
 @app.route("/set_num_subs", methods=['GET', 'POST'])
@@ -47,10 +47,10 @@ def set_num_subs():
 
     num_players = session['num_players']
 
-    # TODO: remove -1 when goalkeeper added as position
-    form = dynamically_update_form(num_players - 1 + num_subs)
+    # TODO: remove -1 once goalkeeper added as position
+    team_form = dynamically_update_form(num_players - 1 + num_subs)
 
-    return render_template("index.html", form=form)
+    return render_template("index.html", form=team_form)
 
 
 @app.route("/team_selection", methods=['GET', 'POST'])
