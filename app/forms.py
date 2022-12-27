@@ -4,7 +4,7 @@ from wtforms.validators import DataRequired, Length
 
 
 class PlayerPrefForm(FlaskForm):
-    player_name  = StringField('Player Name', default='Player Name', validators=[DataRequired(), Length(min=2, max=20)])
+    player_name  = StringField('Player Name', default='Name', validators=[DataRequired(), Length(min=2, max=20)])
     pref_defence = IntegerField('Defender', default=0, validators=[DataRequired()])
     pref_central = IntegerField('Central', default=0, validators=[DataRequired()])
     pref_winger  = IntegerField('Winger', default=0, validators=[DataRequired()])
